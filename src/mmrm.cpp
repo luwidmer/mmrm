@@ -100,6 +100,8 @@ Type objective_function<Type>::operator() ()
   }
 
   // Solve for beta.
+  Rcout << "Value of XtWX : " << XtWX << "\n";
+  Rcout << "Value of XtWY : " << XtWY << "\n";
   Eigen::LDLT<Eigen::Matrix<Type,Eigen::Dynamic,Eigen::Dynamic> > XtWX_decomposition(XtWX);
   matrix<Type> beta_mat = XtWX_decomposition.solve(XtWY);
   vector<Type> beta = beta_mat.col(0);
